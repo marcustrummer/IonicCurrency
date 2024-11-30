@@ -1,0 +1,35 @@
+.center-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100%;            
+    text-align: center;
+
+ion-card {
+    width: 90%;            
+    max-width: 400px;      
+    padding: 16px;         
+    box-shadow: 0 -2px 4px rgba(106, 90, 205); 
+    border-radius: 12px;   
+    }
+
+ion-card-header {
+    text-align: center;    
+    font-weight: bold;
+    }
+
+.title {
+    margin-top: 16px;
+    font-size: 1.2rem;     
+    font-weight: bold;
+    }
+
+ion-list {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    }
+
+ion-toolbar {
+    margin-top: 16px;
+    }
+}

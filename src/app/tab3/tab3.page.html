@@ -1,17 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title>Configurações</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="center-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Atualizar Taxa de Câmbio</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-select label="Escolha a quanto tempo" placeholder="Select time">
+              <ion-select-option value="min5">A cada 5 minutos</ion-select-option>
+              <ion-select-option value="min15">A cada 15 minutos</ion-select-option>
+              <ion-select-option value="hours1">A cada 1 hora</ion-select-option>
+              <ion-select-option value="oranges">Diariamente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <ion-title class="title">Notificações</ion-title>
+        <ion-toggle>Ativar Notificações</ion-toggle><br /><br />
+
+        <ion-toolbar>
+          <ion-button (click)="setOpen(true)">Salvar</ion-button>
+    <ion-alert
+  [isOpen]="isAlertOpen"
+  header="Salvar alterações"
+  message="Suas alterações foram salvas com sucesso."
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+    ></ion-alert>
+        </ion-toolbar>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
