@@ -8,8 +8,8 @@
   <div class="converter-container">
     <div class="input-section">
       <ion-item>
-        <ion-input placeholder="$ 1.000"></ion-input>
-        <ion-select>
+        <ion-input [(ngModel)]="inputValue" (ionInput)="onInputChange($event)" placeholder="Digite o valor"></ion-input>
+        <ion-select [(ngModel)]="fromCurrency" (ionChange)="onFromCurrencyChange()">
           <ion-select-option value="USD">USD</ion-select-option>
           <ion-select-option value="EUR">EUR</ion-select-option>
           <ion-select-option value="GBP">GBP</ion-select-option>
@@ -22,8 +22,8 @@
 
     <div class="output-section">
       <ion-item>
-        <ion-input placeholder="R$ 5.148,20" readonly></ion-input>
-        <ion-select>
+        <ion-input [value]="formattedOutputValue" readonly></ion-input>
+        <ion-select [(ngModel)]="toCurrency" (ionChange)="onToCurrencyChange()">
           <ion-select-option value="USD">USD</ion-select-option>
           <ion-select-option value="EUR">EUR</ion-select-option>
           <ion-select-option value="GBP">GBP</ion-select-option>
