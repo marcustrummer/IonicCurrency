@@ -1,3 +1,9 @@
+ion-toolbar,
+ion-header {
+  --background: transparent;
+  box-shadow: none;
+}
+
 .transaction-content {
     display: flex;
     flex-direction: column;

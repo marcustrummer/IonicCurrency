@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Histórico de Transações
@@ -24,7 +24,7 @@
 
   <ion-item *ngIf="transactionHistory.length === 0">
     <ion-label>
-      <h2>Sem transações salvas</h2>
+      <h2 class="withoutcontent">Sem transações salvas</h2>
     </ion-label>
   </ion-item>
 
