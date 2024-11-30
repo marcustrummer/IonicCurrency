@@ -7,8 +7,9 @@ import { CurrencyService } from '../services/currency.service';
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page {
-  inputValue: number = 0;
-  formattedInputValue: string = '0,00';
+  
+  inputValue: number | null = null; 
+  formattedInputValue: string = '';  
   outputValue: number = 0;
   formattedOutputValue: string = '0,00';
 
@@ -22,7 +23,6 @@ export class Tab1Page {
     this.loadExchangeRates(this.fromCurrency); 
   }
 
-
   loadExchangeRates(baseCurrency: string) {
     this.currencyService.getExchangeRates(baseCurrency).subscribe((data) => {
       this.exchangeRates = data.conversion_rates;
@@ -33,7 +33,7 @@ export class Tab1Page {
   convertCurrency() {
     if (this.exchangeRates && this.exchangeRates[this.toCurrency]) {
       const rate = this.exchangeRates[this.toCurrency];
-      this.outputValue = this.inputValue * rate; 
+      this.outputValue = this.inputValue && this.inputValue >= 0 ? this.inputValue * rate : 0;  
       this.formattedOutputValue = this.formatCurrency(this.outputValue); 
     }
   }
@@ -43,8 +43,16 @@ export class Tab1Page {
   }
 
   onInputChange(event: any) {
-    this.inputValue = parseFloat(event.target.value.replace(',', '.')) || 0;
-    this.formattedInputValue = this.formatCurrency(this.inputValue);
+    let input = event.target.value.replace(',', '.'); 
+    this.inputValue = parseFloat(input); 
+ 
+    if (this.inputValue < 0) {
+      this.inputValue = null;
+      this.formattedInputValue = ''; 
+    } else {
+      this.formattedInputValue = this.formatCurrency(this.inputValue ?? 0); 
+    }
+
     this.convertCurrency(); 
   }
 

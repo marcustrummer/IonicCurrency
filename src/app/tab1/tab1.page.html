@@ -8,7 +8,13 @@
   <div class="converter-container">
     <div class="input-section">
       <ion-item>
-        <ion-input [(ngModel)]="inputValue" (ionInput)="onInputChange($event)" placeholder="Digite o valor"></ion-input>
+        <ion-input [(ngModel)]="inputValue" 
+        (ionInput)="onInputChange($event)" 
+        placeholder="Digite o valor" 
+        type="number" 
+        inputmode="numeric" 
+        min="0" 
+        step="any"></ion-input>
         <ion-select [(ngModel)]="fromCurrency" (ionChange)="onFromCurrencyChange()">
           <ion-select-option value="USD">USD</ion-select-option>
           <ion-select-option value="EUR">EUR</ion-select-option>
