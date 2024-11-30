@@ -1,3 +1,64 @@
+ion-title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffff;
+  margin: 12px;
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  width: auto;
+  white-space: nowrap;
+}
+
+ion-toolbar,
+ion-header {
+  --background: transparent;
+  box-shadow: none;
+}
+ 
+ion-item {
+  --background: transparent;
+  --border-width: 1px;
+  --border-radius: 12px;
+  margin-left: 8px;
+}
+
+ion-input {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  align-items: start;
+}
+
+ion-select {
+  width: 100px;
+}
+
+ion-avatar img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+} 
+
+.swap-icon {
+  font-size: 24px;
+  color: #666;
+  margin: 16px;
+  cursor: pointer;
+}
+
+ion-button {
+  --border-radius: 8px;
+  color: white;
+}
+
+.button {
+  display: flex;
+  align-content: end;
+  margin-inline-end: 8px;
+  justify-content: flex-end;
+}
+
 .converter-container {
     display: flex;
     align-items: center;
@@ -8,29 +69,28 @@
     .output-section {
       flex: 1;
     }
-  
-    ion-item {
-      --background: transparent;
-      --border-width: 1px;
-      --border-radius: 8px;
-      margin-right: 8px;
+
+
+  @media (max-width: 600px) {
+    ion-title {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
     }
   
     ion-input {
-      font-size: 16px;
-      font-weight: bold;
-      text-align: left;
+      height: 45px;
     }
   
-    ion-select {
-      width: 100px;
+    ion-button {
+      height: 45px;
     }
-  
-    .swap-icon {
-      font-size: 24px;
-      color: #666;
-      margin: 0 16px;
-      cursor: pointer;
+
+    .converter-container {
+      display: flex;
+      align-items: center;
     }
   }
+
+}
   

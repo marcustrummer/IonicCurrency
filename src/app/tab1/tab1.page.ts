@@ -63,4 +63,12 @@ export class Tab1Page {
   onToCurrencyChange() {
     this.convertCurrency(); 
   }
+
+  onSwapCurrencies() {
+    const temp = this.fromCurrency;
+    this.fromCurrency = this.toCurrency;
+    this.toCurrency = temp;
+
+    this.loadExchangeRates(this.fromCurrency);
+  }
 }
