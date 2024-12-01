@@ -1,0 +1,30 @@
+ion-toolbar,
+ion-header {
+  --background: transparent;
+  box-shadow: none;
+}
+
+.transaction-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .transaction-details {
+    margin-bottom: 8px; 
+  }
+  
+  .transaction-timestamp {
+    font-size: 0.85em;
+    color: gray;
+  }
+  
+  .delete-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
