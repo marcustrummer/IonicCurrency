@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+  
   <div class="converter-container">
     <div class="input-section">
       <ion-item>
@@ -151,10 +152,10 @@
         </ion-select>
       </ion-item>
     </div>
+    <div class="button">
+      <ion-button (click)="saveTransaction()">Salvar valor</ion-button>
+    </div>
   </div>
 
-  <div class="button">
-    <ion-button color="secondary" (click)="saveTransaction()">Salvar valor</ion-button>
-  </div>
   
 </ion-content>

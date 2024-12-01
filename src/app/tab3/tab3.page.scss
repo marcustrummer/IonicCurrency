@@ -33,3 +33,16 @@ ion-toolbar {
     margin-top: 16px;
     }
 }
+ion-header {
+    ion-toolbar {
+    --background: #6a5acd;  
+    --border-radius: 0;
+    padding: 0;  
+    }
+    ion-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    }
+}

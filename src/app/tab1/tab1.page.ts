@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewWillLeave } from '@ionic/angular';  
 import { CurrencyService } from '../services/currency.service';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 interface ExchangeRatesResponse {
   conversion_rates: { [key: string]: number };
