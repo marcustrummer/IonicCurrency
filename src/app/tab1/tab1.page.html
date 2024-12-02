@@ -1,17 +1,160 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Conversor de Moedas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="converter-container">
+    <div class="input-section">
+      <ion-item>
+        <ion-input [(ngModel)]="inputValue"
+        (ionInput)="onInputChange($event)"
+        placeholder="Digite o valor"
+        type="number" 
+        inputmode="decimal" 
+         min="0"
+        step="any"></ion-input>
+        <ion-select [(ngModel)]="fromCurrency" (ionChange)="onFromCurrencyChange()">
+          <ion-select-option value="USD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/us.png" alt="USD" width="24" height="24">
+            </ion-avatar>
+            USD
+          </ion-select-option>
+          <ion-select-option value="EUR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/eu.png" alt="EUR">
+            </ion-avatar>
+            EUR
+          </ion-select-option>
+          <ion-select-option value="CNY">
+            <ion-avatar slot="start">
+              <img src="assets/flags/cn.png" alt="CNY">
+            </ion-avatar>
+            CNY
+          </ion-select-option>
+          <ion-select-option value="GBP">
+            <ion-avatar slot="start">
+              <img src="assets/flags/gb.png" alt="GBP">
+            </ion-avatar>
+            GBP
+          </ion-select-option>
+          <ion-select-option value="JPY">
+            <ion-avatar slot="start">
+              <img src="assets/flags/jp.png" alt="JPY">
+            </ion-avatar>
+            JPY
+          </ion-select-option>
+          <ion-select-option value="AUD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/au.png" alt="AUD">
+            </ion-avatar>
+            AUD
+          </ion-select-option>
+          <ion-select-option value="CAD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/ca.png" alt="CAD">
+            </ion-avatar>
+            CAD
+          </ion-select-option>
+          <ion-select-option value="INR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/in.png" alt="INR">
+            </ion-avatar>
+            INR
+          </ion-select-option>
+          <ion-select-option value="BRL">
+            <ion-avatar slot="start">
+              <img src="assets/flags/br.png" alt="BRL">
+            </ion-avatar>
+            BRL
+          </ion-select-option>
+          <ion-select-option value="SAR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/sa.png" alt="SAR">
+            </ion-avatar>
+            SAR
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-icon name="swap-horizontal-outline" class="swap-icon" (click)="onSwapCurrencies()"></ion-icon>
+
+    <div class="output-section">
+      <ion-item>
+        <ion-input [value]="formattedOutputValue" readonly></ion-input>
+        <ion-select [(ngModel)]="toCurrency" (ionChange)="onToCurrencyChange()">
+          <ion-select-option value="USD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/us.png" alt="USD">
+            </ion-avatar>
+            USD
+          </ion-select-option>
+          <ion-select-option value="EUR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/eu.png" alt="EUR">
+            </ion-avatar>
+            EUR
+          </ion-select-option>
+          <ion-select-option value="CNY">
+            <ion-avatar slot="start">
+              <img src="assets/flags/cn.png" alt="CNY">
+            </ion-avatar>
+            CNY
+          </ion-select-option>
+          <ion-select-option value="GBP">
+            <ion-avatar slot="start">
+              <img src="assets/flags/gb.png" alt="GBP">
+            </ion-avatar>
+            GBP
+          </ion-select-option>
+          <ion-select-option value="JPY">
+            <ion-avatar slot="start">
+              <img src="assets/flags/jp.png" alt="JPY">
+            </ion-avatar>
+            JPY
+          </ion-select-option>
+          <ion-select-option value="AUD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/au.png" alt="AUD">
+            </ion-avatar>
+            AUD
+          </ion-select-option>
+          <ion-select-option value="CAD">
+            <ion-avatar slot="start">
+              <img src="assets/flags/ca.png" alt="CAD">
+            </ion-avatar>
+            CAD
+          </ion-select-option>
+          <ion-select-option value="INR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/in.png" alt="INR">
+            </ion-avatar>
+            INR
+          </ion-select-option>
+          <ion-select-option value="BRL">
+            <ion-avatar slot="start">
+              <img src="assets/flags/br.png" alt="BRL">
+            </ion-avatar>
+            BRL
+          </ion-select-option>
+          <ion-select-option value="SAR">
+            <ion-avatar slot="start">
+              <img src="assets/flags/sa.png" alt="SAR">
+            </ion-avatar>
+            SAR
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="button">
+    <ion-button color="secondary" (click)="saveTransaction()">Salvar valor</ion-button>
+  </div>
+  
 </ion-content>
