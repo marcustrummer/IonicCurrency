@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { ViewWillLeave } from '@ionic/angular';  
-import { CurrencyService } from '../services/currency.service';  
+import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from '../services/currency.service';
 
 interface ExchangeRatesResponse {
   conversion_rates: { [key: string]: number };
@@ -13,7 +12,7 @@ interface ExchangeRatesResponse {
   templateUrl: './tab1.page.html',
   styleUrls: ['./tab1.page.scss'],
 })
-export class Tab1Page implements ViewWillLeave {
+export class Tab1Page implements OnInit {
 
   inputValue: number | null = null;
   formattedInputValue: string = '';
@@ -29,8 +28,8 @@ export class Tab1Page implements ViewWillLeave {
   constructor(private currencyService: CurrencyService) {}
 
   ngOnInit() {
-    this.loadTransactionHistory();
-    this.loadExchangeRates(this.fromCurrency);
+    this.loadTransactionHistory();  
+    this.loadExchangeRates(this.fromCurrency);  
   }
 
   ionViewWillLeave() {
@@ -59,6 +58,45 @@ export class Tab1Page implements ViewWillLeave {
     return value.toFixed(2).replace('.', ',');
   }
 
+  loadTransactionHistory() {
+    const savedHistory = localStorage.getItem('transactionHistory');
+    if (savedHistory) {
+      try {
+        this.transactionHistory = JSON.parse(savedHistory); 
+      } catch (error) {
+        console.error('Erro ao carregar o histórico de transações:', error);
+      }
+    }
+  }
+
+  onFromCurrencyChange() {
+    this.loadExchangeRates(this.fromCurrency);  
+  }
+
+  onToCurrencyChange() {
+    this.convertCurrency();  
+  }
+
+  onSwapCurrencies() {
+    const temp = this.fromCurrency;
+    this.fromCurrency = this.toCurrency;
+    this.toCurrency = temp;
+    this.loadExchangeRates(this.fromCurrency);  
+  }
+
+  saveTransaction() {
+    const transaction = {
+      fromCurrency: this.fromCurrency,
+      toCurrency: this.toCurrency,
+      amount: this.inputValue,
+      convertedAmount: this.outputValue,
+      date: new Date().toISOString(),
+    };
+
+    this.transactionHistory.push(transaction);
+    localStorage.setItem('transactionHistory', JSON.stringify(this.transactionHistory)); 
+  }
+
   onInputChange(event: any) {
     let input = event.target.value.replace(',', '.');
     this.inputValue = parseFloat(input);
@@ -70,46 +108,6 @@ export class Tab1Page implements ViewWillLeave {
       this.formattedInputValue = this.formatCurrency(this.inputValue ?? 0);
     }
 
-    this.convertCurrency();
-  }
-
-  onFromCurrencyChange() {
-    this.loadExchangeRates(this.fromCurrency);
-  }
-
-  onToCurrencyChange() {
-    this.convertCurrency();
-  }
-
-  onSwapCurrencies() {
-    const temp = this.fromCurrency;
-    this.fromCurrency = this.toCurrency;
-    this.toCurrency = temp;
-    this.loadExchangeRates(this.fromCurrency);
-  }
-
-  saveTransaction() {
-    if (this.inputValue !== null && this.inputValue >= 0) {
-      const transaction = {
-        inputValue: this.inputValue,
-        fromCurrency: this.fromCurrency,
-        toCurrency: this.toCurrency,
-        outputValue: this.outputValue,
-        formattedOutputValue: this.formattedOutputValue,
-        timestamp: new Date().toLocaleString(),
-      };
-
-      this.transactionHistory.push(transaction);
-      localStorage.setItem('transactionHistory', JSON.stringify(this.transactionHistory));
-    } else {
-      console.log('Erro: valores inválidos para salvar transação');
-    }
-  }
-
-  loadTransactionHistory() {
-    const savedHistory = localStorage.getItem('transactionHistory');
-    if (savedHistory) {
-      this.transactionHistory = JSON.parse(savedHistory);
-    }
+    this.convertCurrency();  
   }
 }
