@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewWillEnter } from '@ionic/angular';  
 import { trigger, transition, style, animate } from '@angular/animations';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
@@ -45,5 +46,3 @@ export class Tab2Page implements ViewWillEnter {
   }
   
 }
-
-
