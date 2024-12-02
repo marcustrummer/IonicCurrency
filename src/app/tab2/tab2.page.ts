@@ -1,10 +1,22 @@
 import { Component } from '@angular/core';
 import { ViewWillEnter } from '@ionic/angular';  
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
   styleUrls: ['./tab2.page.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('500ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class Tab2Page implements ViewWillEnter {
 
@@ -32,4 +44,5 @@ export class Tab2Page implements ViewWillEnter {
     this.transactionHistory = [];
     localStorage.removeItem('transactionHistory');
   }
+  
 }

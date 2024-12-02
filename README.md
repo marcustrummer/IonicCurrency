@@ -1,68 +1,94 @@
-# App de Conversão de Moedas em Tempo Real com Ionic
+# **IonicCurrency - Conversor de Moedas em Tempo Real**
 
-## Descrição do Projeto
-Este projeto consiste em um aplicativo móvel desenvolvido com o framework **Ionic** e a linguagem **TypeScript**, que realiza a conversão de moedas em tempo real, consumindo dados de APIs REST externas. Ele é voltado para a plataforma Android e oferece uma interface simples, intuitiva e responsiva.
-
-### Funcionalidades Principais
-1. **Integração com API de Conversão de Moedas**:
-   - Consumo de APIs como [ExchangeRate API](https://www.exchangerate-api.com/) ou [CurrencyConverterAPI](https://www.currencyconverterapi.com/).
-   - Permite selecionar moedas de origem e destino para conversão.
-
-2. **Interface Responsiva**:
-   - Interface adaptada para diferentes tamanhos de tela usando componentes do Ionic.
-
-3. **Histórico de Conversões**:
-   - Armazena e exibe as últimas conversões realizadas localmente.
-
-4. **Suporte a Várias Moedas**:
-   - Pesquise moedas por nome ou símbolo (ex.: USD, EUR, BRL).
-
-5. **Atualização Automática de Taxas**:
-   - Taxas de câmbio atualizadas ao abrir o app ou realizar uma conversão.
-
-6. **Conversão Inversa**:
-   - Inverta rapidamente as moedas de origem e destino.
-
-7. **Funcionalidade Offline**:
-   - Use taxas de câmbio armazenadas localmente quando estiver offline.
-
-8. **Interface Gráfica de Cotações** (opcional):
-   - Exibição de gráficos de variação de taxas de câmbio para moedas selecionadas.
-
-9. **Opções de Configuração**:
-   - Configure a frequência de atualização e notificações de variações.
+Este projeto é um aplicativo móvel construído com **Ionic Framework** e **TypeScript**, que permite a conversão de moedas em tempo real. Utilizando dados de APIs REST externas, o aplicativo entrega uma interface intuitiva e funcional, com suporte para dispositivos Android.
 
 ---
 
-## Tecnologias Utilizadas
+## **Funcionalidades**
+
+- **Integração com APIs de Conversão de Moedas**:
+  - Taxas de câmbio atualizadas de API.
+  - Seleção de moedas de origem e destino para conversão.
+
+- **Interface Responsiva e Intuitiva**:
+  - Componentes do Ionic adaptados para diferentes tamanhos de tela.
+
+- **Histórico de Conversões**:
+  - Armazena localmente e exibe as últimas transações realizadas.
+
+- **Conversão de Múltiplas Moedas**:
+  - Pesquise por moedas usando código ou nome (ex.: USD, EUR, BRL).
+
+- **Conversão Rápida e Inversa**:
+  - Troque facilmente as moedas de origem e destino.
+
+- **Funcionalidade Offline**:
+  - Permite uso com taxas de câmbio armazenadas localmente.
+
+---
+
+## **Tecnologias Utilizadas**
+
 - **Framework**: Ionic
 - **Linguagem**: TypeScript
-- **API REST**: ExchangeRate API, CurrencyConverterAPI (ou similar)
-- **Armazenamento Local**: Local Storage ou SQLite
+- **APIs REST**: ExchangeRate API ou equivalentes
+- **Armazenamento Local**: Local Storage para persistência de dados
 
 ---
 
-## Como Executar o Projeto
+## **Como Executar o Projeto**
 
-### Pré-requisitos
-- **Node.js** (recomendado LTS)
-- Ionic CLI instalado globalmente:
-  ```bash
-  npm install -g @ionic/cli
+### **Pré-requisitos**
 
-## Passos para Configuração
-- Clone este repositório:
-    `git clone https://github.com/seu-usuario/repo-conversao-moedas.git`
-    `cd repo-conversao-moedas`
-    
-- Instale as dependências:
-    `npm install`
+1. **Node.js**: Instale o [Node.js](https://nodejs.org) (versão LTS recomendada).  
+2. **Ionic CLI**: Instale a CLI do Ionic globalmente:  
+   ```bash
+   npm install -g @ionic/cli
+   ```
 
--Execute o aplicativo em um navegador:
-    `ionic serve`
+---
 
--Para rodar no Android:
-    `ionic capacitor add android`
-    `ionic capacitor run android`
+### **Passos para Configuração**
 
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/marcustrummer/IonicCurrency.git
+   cd IonicCurrency
+   ```
 
+2. Instale as dependências:  
+   ```bash
+   npm install
+   ```
+
+3. Execute o aplicativo no navegador:  
+   ```bash
+   ionic serve
+   ```
+
+4. Para rodar no Android:  
+   ```bash
+   ionic capacitor add android
+   ionic capacitor run android
+   ```
+
+---
+
+## **Contribuições**
+
+Contribuições são bem-vindas! Siga os passos abaixo para colaborar:
+
+1. Faça um fork do projeto.
+2. Crie um branch para suas alterações:  
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Realize os commits:  
+   ```bash
+   git commit -m "Adiciona nova funcionalidade"
+   ```
+4. Envie suas alterações para o seu fork:  
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request no repositório principal detalhando suas mudanças.

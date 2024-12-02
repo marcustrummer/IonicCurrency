@@ -13,8 +13,8 @@
         <ion-input [(ngModel)]="inputValue"
         (ionInput)="onInputChange($event)"
         placeholder="Digite o valor"
-        type="number" 
-        inputmode="decimal" 
+        type="number"
+        inputmode="decimal"
          min="0"
         step="any"></ion-input>
         <ion-select [(ngModel)]="fromCurrency" (ionChange)="onFromCurrencyChange()">
@@ -154,7 +154,11 @@
   </div>
 
   <div class="button">
-    <ion-button color="secondary" (click)="saveTransaction()">Salvar valor</ion-button>
+    <ion-button (click)="saveTransaction()">Salvar valor</ion-button>
   </div>
-  
+
+  <div class="chart-container">
+    <canvas id="currencyChart"></canvas>
+  </div>
+
 </ion-content>

@@ -11,10 +11,10 @@
     <ion-item *ngFor="let transaction of transactionHistory; let i = index" [@fadeInOut]>
       <ion-label class="transaction-content">
         <div class="transaction-details">
-          <p>{{ transaction.inputValue }} {{ transaction.fromCurrency }} para {{ transaction.toCurrency }} = {{ transaction.formattedOutputValue }}</p>
+          <p>{{ transaction.amount }} {{ transaction.fromCurrency }} para {{ transaction.toCurrency }} = {{ transaction.convertedAmount | number:'1.2-2' }}</p>
         </div>
         <div class="transaction-timestamp">
-          <small>{{ transaction.timestamp }}</small>
+          <small>{{ transaction.date | date:'short' }}</small>
         </div>
       </ion-label>
 

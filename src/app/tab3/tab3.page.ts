@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
 export class Tab3Page {
 
   constructor() {}
+  isAlertOpen = false;
+  alertButtons = ['Fechar'];
 
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+}
 }
